@@ -40,7 +40,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/neosnippet-snippets'
 
-Plugin 'markgeek/vim-snippets'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
