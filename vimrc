@@ -17,18 +17,13 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'pangloss/vim-javascript'
 Plugin 'Townk/vim-autoclose'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'LeonB/vim-nginx'
 Plugin 'majutsushi/tagbar'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'rking/ag.vim'
 
 Plugin 'cespare/vim-toml'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
 
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-surround'
@@ -111,9 +106,6 @@ if has("autocmd")
   " see :help last-position-jump
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g`\"" | endif
-
-  " mark Jekyll YAML frontmatter as comment
-  au BufNewFile,BufRead *.{md,markdown,html,xml} sy match Comment /\%^---\_.\{-}---$/
 endif
 
 " clear the search buffer when hitting return
@@ -122,9 +114,6 @@ endif
 let mapleader=","
 
 map <Leader>ff :Unite file_rec -winheight=50 -start-insert<cr>
-
-" ignore Rubinius, Sass cache files
-set wildignore+=tmp/**,*.rbc,.rbx,*.scssc,*.sassc,app/assets/images/**,public/**
 
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
@@ -146,16 +135,6 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme = 'hybrid'
 
-" vim folding
-" set foldmethod=indent   "fold based on indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
-
-" remember folding
-autocmd BufWrite * mkview
-autocmd BufRead * silent loadview
-
 " Ag
 map <leader>s :Ag
 
@@ -172,19 +151,11 @@ let g:neocomplete#enable_at_startup=1
 let g:neocomplete#force_overwrite_completefunc=1
 
 let g:neocomplete#force_omni_input_patterns={}
-let g:neocomplete#force_omni_input_patterns.ruby='[^. \t]\.\w*'
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading=1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global=1
-autocmd FileType ruby,eruby let g:rubycomplete_include_object=1
-autocmd FileType ruby,eruby let g:rubycomplete_include_objectspace=1
 
 " Neosnippet Plugin key-mappings.
 let g:neosnippet#enable_snipmate_compatibility=1
