@@ -21,7 +21,6 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'majutsushi/tagbar'
 Plugin 'dkprice/vim-easygrep'
-Plugin 'rking/ag.vim'
 
 Plugin 'cespare/vim-toml'
 
@@ -134,9 +133,6 @@ set laststatus=2
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme = 'hybrid'
-
-" Ag
-map <leader>s :Ag
 
 " NERDTree
 map <leader>t :NERDTree<cr>
